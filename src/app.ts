@@ -12,6 +12,7 @@ export interface AppInstance {
 export function createApp(customRepo?: IUserRepository): AppInstance {
   const app = express();
   app.use(express.json());
+  console.log('here')
 
   const userRepository = customRepo ?? new InMemoryUserRepository();
   const userService = new UserService(userRepository);
