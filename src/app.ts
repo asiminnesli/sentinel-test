@@ -29,7 +29,7 @@ export function createApp(
   const orderService = new OrderService(orderRepository);
 
   app.use("/users", createUserRouter(userService));
-  app.use("/orders", createOrderRouter(orderService));
+  app.use("/orders", createOrderRouter(orderService, orderRepository));
 
   app.get("/health", (_req, res) => {
     res.json({ status: "ok" });
